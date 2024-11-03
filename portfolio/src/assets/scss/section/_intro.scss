@@ -91,10 +91,26 @@
     }
     .intro__wrap {
         // height: 70vh;
+        display: flex;
         @include flex-center;
-        flex-direction: column;
+        // flex-direction: column;
         position: sticky;
         left: 0;
+        .intro__content {
+            div {
+                display: flex;
+                img {
+                    height: 16px;
+                    width: 16px;
+                    padding: 1px;
+                }
+                #phni{
+                    overflow: hidden; 
+                    height: 24px;
+                    width: 24px;
+                }
+            }
+        }
     }
 //     .intro__text {
 //         width: 100%;

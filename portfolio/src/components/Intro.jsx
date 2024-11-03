@@ -1,7 +1,8 @@
 import React from "react";
-import {ReactComponent as phoneIcon} from '../assets/icon/phone.svg'
-import {ReactComponent as birthIcon} from '../assets/icon/calendar.svg'
-import {ReactComponent as emailIcon} from '../assets/icon/phone.svg'
+import phoneIcon from "../assets/icon/phone.svg";
+import birthIcon from "../assets/icon/calendar.svg";
+import emailIcon from "../assets/icon/email.svg";
+import Myimg from "../assets/img/김동혁_202044005.jpg";
 import about from "../assets/img/about.jpg";
 
 const introduction = {
@@ -20,13 +21,13 @@ const Intro = () => {
                 <h2 className="intro__title">INTRODUCTION <em>자기소계</em></h2>
                 <div className="intro__wrap">
                     <div className="intro__img">
-                        <span>사진</span> 
+                        <img></img> 
                     </div>
                     <div className="intro__content">
                         <h1>{introduction.NameKor}({introduction.NameEng})</h1>
                         <div>
-                            <birthIcon/>
-                            <p>{introduction.brith.getFullYear()}.
+                            <img src={birthIcon} alt="SVG"/>
+                            <p>: {introduction.brith.getFullYear()}.
                                 {introduction.brith.getMonth().toString().padStart(2, '0')}.
                                 {introduction.brith.getDate()}
                                 (
@@ -34,16 +35,16 @@ const Intro = () => {
                                 )</p>
                         </div>
                         <div>
-                            <phoneIcon/>
+                            <img id="phni" src={phoneIcon} alt="SVG"/>
                             <p>
-                                {introduction.phone}
+                            : {introduction.phone}
                             </p>
                         </div>
                         <div>
-                            <emailIcon/>
+                            <img src={emailIcon} alt="SVG"/>
                             <a
                                 href= {`mailto:${introduction.email}`} >
-                                    {introduction.email}
+                                    : {introduction.email}
                             </a>
                         </div>
                     </div>

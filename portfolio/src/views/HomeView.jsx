@@ -16,7 +16,7 @@ const HomeView = () => {
       <Skip />
       <Header />
       <Main>
-        <Skill />
+        {/* <Skill /> */}
         <Intro />
         <Skill />
         <Site />
