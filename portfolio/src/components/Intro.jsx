@@ -1,9 +1,15 @@
 import React from "react";
+import {ReactComponent as phoneIcon} from '../assets/icon/phone.svg'
+import {ReactComponent as birthIcon} from '../assets/icon/calendar.svg'
+import {ReactComponent as emailIcon} from '../assets/icon/phone.svg'
 import about from "../assets/img/about.jpg";
 
-const introText = {
-    title: "port developer",
-    desc: ["talent is", "found at the end of the", "effort"],
+const introduction = {
+    NameKor: "김동혁",
+    NameEng: "Kim Dong Hyuk",
+    brith: new Date(2002, 2, 15),
+    phone: "010-9522-9505",
+    email: "dh95229505@gmail.com"
 };
 
 
@@ -13,75 +19,33 @@ const Intro = () => {
             <div className="intro__inner">
                 <h2 className="intro__title">INTRODUCTION <em>자기소계</em></h2>
                 <div className="intro__wrap">
-                    <div>
-                        <span>1</span> 
-                        <h3>1212</h3>
-                        <p>12</p>
+                    <div className="intro__img">
+                        <span>사진</span> 
                     </div>
-                    <div>
-                        <span>1</span> 
-                        <h3>1212</h3>
-                        <p>12</p>
-                    </div>
-                    <div>
-                        <span>1</span> 
-                        <h3>1212</h3>
-                        <p>12</p>
-                    </div>
-                    <div>
-                        <span>1</span> 
-                        <h3>1212</h3>
-                        <p>12</p>
-                    </div>
-                    <div>
-                        <span>1</span> 
-                        <h3>1212</h3>
-                        <p>12</p>
-                    </div>
-                    <div>
-                        <span>1</span> 
-                        <h3>1212</h3>
-                        <p>12</p>
-                    </div>
-                    <div>
-                        <span>1</span> 
-                        <h3>1212</h3>
-                        <p>12</p>
-                    </div>
-                    <div>
-                        <span>1</span> 
-                        <h3>1212</h3>
-                        <p>12</p>
-                    </div>
-                    <div>
-                        <span>1</span> 
-                        <h3>1212</h3>
-                        <p>12</p>
-                    </div>
-                    <div>
-                        <span>1</span> 
-                        <h3>1212</h3>
-                        <p>12</p>
-                    </div>
-                    <div>
-                        <span>1</span> 
-                        <h3>1212</h3>
-                        <p>12</p>
-                    </div>
-                    <div>
-                        <span>1</span> 
-                        <h3>1212</h3>
-                        <p>12</p>
-                    </div>
-                    <div>
-                        <span>1</span> 
-                        <h3>1212</h3>
-                        <p>12</p>
-                    </div>
-                    <div>
-                        <span>1</span> 
-                        <h3>1212</h3>
-                        <p>12</p>
+                    <div className="intro__content">
+                        <h1>{introduction.NameKor}({introduction.NameEng})</h1>
+                        <div>
+                            <birthIcon/>
+                            <p>{introduction.brith.getFullYear()}.
+                                {introduction.brith.getMonth().toString().padStart(2, '0')}.
+                                {introduction.brith.getDate()}
+                                (
+                                만 {new Date().getFullYear()-introduction.brith.getFullYear()} 세
+                                )</p>
+                        </div>
+                        <div>
+                            <phoneIcon/>
+                            <p>
+                                {introduction.phone}
+                            </p>
+                        </div>
+                        <div>
+                            <emailIcon/>
+                            <a
+                                href= {`mailto:${introduction.email}`} >
+                                    {introduction.email}
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
