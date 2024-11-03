@@ -13,8 +13,9 @@
         font-family: var(--mainKor-font);
         text-transform: uppercase;
         color: var(--black100);
-        border-bottom: 0.4vw solid var(--black100);
+        border-bottom: 0.5vw solid var(--black100);
         margin-bottom: 100px;
+        padding-bottom: 5.5vw;
 
         @media (max-width: 800px){ 
             width: 100%;
@@ -24,6 +25,7 @@
             top: 68px;
             z-index: 1000;
             background-color: var(--mainBg-color);
+            padding-bottom: 0vw;
         }
 
         em {

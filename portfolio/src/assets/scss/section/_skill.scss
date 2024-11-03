@@ -11,7 +11,7 @@
         position: sticky;
         top: 70px;
         left: 0;
-        width: 48%;
+        width: 30%;
         height: 5vw;
         font-size: 4vw;
         font-weight: 900;
@@ -20,6 +20,7 @@
         text-transform: uppercase;
         color: var(--black100);
         border-bottom: 0.4vw solid var(--black100);
+        padding-bottom: 5.5vw;
 
         @media (max-width: 800px){ 
             width: 100%;
@@ -27,6 +28,7 @@
             font-size: 30px;
             height: auto;
             top: 68px;
+            padding-bottom: 0vw;
             background-color: var(--mainBg-color);
         }
 
@@ -37,7 +39,7 @@
         }
     }
     .skill__desc {
-        width: 50%;
+        width: 70%;
 
         @media (max-width: 800px){ 
             width: 100%;
