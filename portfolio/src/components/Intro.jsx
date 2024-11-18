@@ -18,7 +18,7 @@ const Intro = () => {
     return (
         <section id="intro">
             <div className="intro__inner">
-                <h2 className="intro__title">INTRODUCTION <em>자기소계</em></h2>
+                <h2 className="intro__title">INTRODUCTION <em>자기소개</em></h2>
                 <div className="intro__wrap">
                     <div className="intro__img">
                         <img></img> 
