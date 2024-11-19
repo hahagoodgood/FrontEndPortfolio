@@ -3,6 +3,7 @@
 }
 .footer__inner {
     padding: 16px;
+    background-color: var(--main_blue_100);
 
     .footer__text {
         font-size: 12px;
@@ -38,7 +39,7 @@
                 transition: all 0.3s;
 
                 &:hover {
-                    background-color: var(--black400);
+                    background-color: var(--main_blue_200);
                     padding-left: 10px;
                     border-color: transparent;  
                 }

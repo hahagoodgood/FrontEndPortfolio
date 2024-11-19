@@ -16,7 +16,13 @@
     --black200: #434343;
     --black300: #686868;
     --black400: #e0e0e0;
-  
+
+    --main_white_100:#FBFBFB;
+    --main_blue_100:#D4F6FF;
+    --main_blue_200:#C6E7FF;
+    --main_Light_peach:#FFDDAE;
+    --main_blue_200_alpha:#295F9833;
+ 
     font-family: var(--mainEng-font), var(--mainKor-font);
     font-size: 16px;
     line-height: 1.5;
@@ -35,5 +41,5 @@
 }
   
 body {
-    background-color: var(--mainBg-color);
+    background-color: var(--main_white_100);
 }

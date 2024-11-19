@@ -70,7 +70,6 @@
         padding-bottom: 5.5vw;
         width: 100%;
         z-index: 1000;
-        background-color: var(--mainBg-color);
 
         @media (max-width: 800px){ 
             width: 100%;
@@ -79,7 +78,7 @@
             height: auto;
             top: 68px;
             z-index: 1000;
-            background-color: var(--mainBg-color);
+            background-color: var(--main_blue_100);
             padding-bottom: 0vw;
         }
 
