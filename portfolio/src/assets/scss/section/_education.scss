@@ -1,0 +1,80 @@
+    .education__inner {
+    //   max-width: 800px; // 교육 섹션 너비
+    //   margin: 0 auto;
+    //   padding: 20px;
+    //   background-color: #ffffff;
+    //   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    //   border-radius: 10px;
+    padding: 16px;
+    .education__title {
+        top: 70px;
+        left: 0;
+        height: 5vw;
+        font-size: 4vw;
+        font-weight: 900;
+        line-height: 1.6;
+        font-family: var(--mainKor-font);
+        text-transform: uppercase;
+        color: var(--black100);
+        border-bottom: 0.5vw solid var(--black100);
+        margin-bottom: 100px;
+        padding-bottom: 5.5vw;
+        width: 100%;
+        z-index: 1000;
+
+        @media (max-width: 800px){ 
+            position: sticky;
+            width: 100%;
+            margin-bottom: 10vw;
+            font-size: 30px;
+            height: auto;
+            top: 68px;
+            z-index: 1000;
+            background-color: var(--main_blue_100);
+            padding-bottom: 0vw;
+        }
+
+        em {
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 2;
+        }
+    }
+    .education__content {
+      padding-left: 50px;
+
+      @media (max-width: 800px){
+        padding-left: 0px;
+        @include flex-center;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+  
+        th, td {
+          // border: 1px solid #e0e0e0;
+          border: 1px solid var(--main_blue_200);
+          padding: 10px;
+          text-align: left;
+        }
+  
+        th {
+          background-color: var(--main_blue_100);
+          font-weight: bold;
+        }
+  
+        tr {
+          background-color: white; // 짝수 행 배경색 설정
+        }
+  
+        td {
+          &.empty {
+            // color: #999; // 값이 없을 때 표시되는 "-" 스타일
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  

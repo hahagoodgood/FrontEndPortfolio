@@ -1,10 +1,9 @@
-import React from "react";
+/* import React from "react";
 import phoneIcon from "../assets/icon/phone.svg";
 import birthIcon from "../assets/icon/calendar.svg";
 import emailIcon from "../assets/icon/email.svg";
 import Myimg from "../assets/img/profile_img.jpg";
 import githubIcon from "../assets/icon/github.svg"
-
 
 const introduction = {
   NameKor: "김동혁",
@@ -15,7 +14,7 @@ const introduction = {
   github: "https://github.com/hahagoodgood",
 };
 
-const Intro = () => {
+const Education = () => {
   return (
     <section id="intro">
       <div className="intro__inner">
@@ -59,39 +58,76 @@ const Intro = () => {
           </div>
         </div>
       </div>
-      {/* <div class="intro__inner">
-                <h1 class="intro__title">{introText.title}</h1>
-                <div class="intro__lines" aria-hidden="true">
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                </div>
-                <div class="intro__text">
-                    <div class="text">
-                        <div>{introText.desc[0]}</div>
-                        <div>{introText.desc[1]}</div>
-                        <div>{introText.desc[2]}</div>
-                    </div>
-                    <div class="img">
-                        <img src={about} alt="어바웃" />
-                    </div>
-                </div>
-                <div class="intro__lines bottom" aria-hidden="true">
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                </div>
-            </div> */}
     </section>
   );
 };
 
-export default Intro;
+export default Education;
+ */
+
+import React from "react";
+
+const educationData = [
+  {
+    startDate: new Date(2017,1),
+    endDate: new Date(2020,1),
+    school: "고려대학교사범대학부속고등학교",
+    major: "자연과학",
+    graduation: "졸업"
+  },
+  {
+    startDate: new Date(2020,1),
+    endDate: new Date(2025,1),
+    school: "인하공업전문대학",
+    major: "컴퓨터정보공학과",
+    grade: 3.26,
+    graduation: "재학"
+  },
+  
+];
+
+const Education = () => {
+  return (
+    <selection id="Education">
+      <div className="education__inner">
+        <h2 className="education__title">
+          Education <em>학 력</em>
+        </h2>
+        <div className="education__content">
+          <table>
+            <thead>
+              <tr>
+                {/* 기간 학교, 전공, 성적, 졸업여부 */}
+                <th>기간</th>
+                <th>학교</th>
+                <th>전공</th>
+                <th>성적</th>
+                <th>졸업여부</th>
+              </tr>
+            </thead>
+            <tbody>
+              {educationData.map((item, index) => (
+                <tr key={index}>
+                  <td>{`${item.startDate.getFullYear()}.
+                  ${(item.startDate.getMonth() + 1)
+                  .toString()
+                  .padStart(2, "0")} ~ 
+                  ${item.endDate.getFullYear()}.
+                  ${(item.endDate.getMonth() + 1)
+                  .toString()
+                  .padStart(2, "0")}.`}</td>
+                  <td>{item.school}</td>
+                  <td>{item.major}</td>
+                  <td>{item.grade ? item.grade : '-'}</td>
+                  <td>{item.graduation}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </selection>
+  );
+};
+
+export default Education;

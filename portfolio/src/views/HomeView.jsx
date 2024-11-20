@@ -8,6 +8,7 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import Skip from "../components/Skip";
 import Main from "../components/Main";
+import Education from "../components/Education";
 
 const HomeView = () => {
   return (
@@ -22,6 +23,7 @@ const HomeView = () => {
         <Site />
         <Port />
         <Contact />
+        <Education />
       </Main>
       <Footer />
     </>
