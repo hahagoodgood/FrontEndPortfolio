@@ -1,11 +1,13 @@
 // import logo from './logo.svg';
 // import './App.css';
 import React from "react";
-import{BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomeView from "./views/HomeView";
+import Login from "./views/Login";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 function App() {
-
   ////초기 세팅
   /* return (
     <div className="App">
@@ -26,12 +28,15 @@ function App() {
     </div>
   ); */
 
-  return(
-    <BrowserRouter>
+  return (
+    <Router>
+      <Header />
       <Routes>
-        <Route path="/" element={<HomeView/>}/>
+        <Route path="/" element={<HomeView />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
-    </BrowserRouter>
+      <Footer />
+    </Router>
   );
 }
 
