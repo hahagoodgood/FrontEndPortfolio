@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button } from "antd";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -8,6 +7,7 @@ const Footer = () => {
 
   useEffect(() => {
     const session = sessionStorage.getItem("isLoggedIn");
+    // true가 아니라 "true"인 이유는 session이 항상 문자열만 저장하기 때문이다.
     setIsLoggedIn(session === "ture");
   }, []);
 
@@ -19,6 +19,7 @@ const Footer = () => {
     } else {
       navigate("/login");
     }
+    // setIsLoggedIn((prev) => !prev);
   };
   return (
     <footer id="footer" role="contentinfo">
@@ -28,11 +29,8 @@ const Footer = () => {
         </div>
         <div className="footer__info">
           <div className="left">
-            <div className="title">
-              <a 
-              onClick={handleButtonClick}>
-                {isLoggedIn ? "Logout" : "LogIn"}
-              </a>
+            <div className="title" onClick={handleButtonClick}>
+              <a>{isLoggedIn ? "Logout" : "LogIn"}</a>
               {/* <button
                                 type={isLoggedIn ? "default" : "primary"}
                                 onClick={handleButtonClick}
