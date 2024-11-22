@@ -1,6 +1,5 @@
-import React from "react";
-// import {db} from "../firebase"
-
+import React, { useEffect, useState } from "react";
+import {getEducationData} from "../services/educationService" 
 
 const educationData = [
   // {
@@ -21,6 +20,18 @@ const educationData = [
 ];
 
 const Education = () => {
+
+  // const [educationData, setEducationData] = useState([]);
+
+  // useEffect(() => {
+  //   const fetchEducationData = async () => {
+  //     const data = await getEducationData();
+  //     setEducationData(data);
+  //   };
+
+  //   fetchEducationData();
+  // });
+
   return (
     <section id="Education">
       <div className="education__inner">

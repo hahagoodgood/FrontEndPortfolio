@@ -6,6 +6,7 @@ import HomeView from "./views/HomeView";
 import Login from "./views/Login";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import testFirebaseConnection from "./firebase/testFirebase"
 
 function App() {
   ////초기 세팅
@@ -27,6 +28,10 @@ function App() {
       </header>
     </div>
   ); */
+
+  React.useEffect(() => {
+    testFirebaseConnection();
+  }, []);
 
   return (
     <Router future={{v7_startTransition: true, v7_relativeSplatPath: true}}>

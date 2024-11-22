@@ -1,5 +1,5 @@
-import {db} from "../firebase";
-import {collection, addDoc} from "firebase/firestore";
+import {db} from "../firebase/firebaseConfig";
+import {collection, addDoc, getDocs} from "firebase/firestore";
 
 //파이어베이스에 저장
 export const saveEducationData = async(data)=>{
@@ -18,7 +18,7 @@ export const getEducationData = async () => {
         const educationList = [];
         querySnapshot.forEach((doc) => {
             educationList.push({ id: doc.id, ...doc.data() });
-            console.log("id:",doc.id, ...doc.data());
+            // console.log("id:",doc.id, ...doc.data());
         });
         return educationList;
     } catch (e) {
