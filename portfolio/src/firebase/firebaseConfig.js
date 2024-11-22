@@ -15,4 +15,6 @@ const firebaseConfig = {
 // Firebase 앱 초기화
 const firebaseApp = initializeApp(firebaseConfig);
 
+const db = getFirestore(app);
+
 export default firebaseApp;

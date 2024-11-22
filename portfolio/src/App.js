@@ -29,7 +29,7 @@ function App() {
   ); */
 
   return (
-    <Router>
+    <Router future={{v7_startTransition: true, v7_relativeSplatPath: true}}>
       <Header />
       <Routes>
         <Route path="/" element={<HomeView />} />
