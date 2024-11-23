@@ -21,16 +21,19 @@ const educationData = [
 
 const Education = () => {
 
-  // const [educationData, setEducationData] = useState([]);
+  const [educationData, setEducationData] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchEducationData = async () => {
-  //     const data = await getEducationData();
-  //     setEducationData(data);
-  //   };
+  useEffect(() => {
+    const fetchEducationData = async () => {
+      console.log("haha")
+      const data = await getEducationData();
+      setEducationData(data);
+    };
 
-  //   fetchEducationData();
-  // });
+    fetchEducationData();
+    // .then((data) => console.log("Data fetched:", data))
+    // .catch((error) => console.error("Error fetching data:", error));
+  }, []);
 
   return (
     <section id="Education">
@@ -53,14 +56,16 @@ const Education = () => {
             <tbody>
               {educationData.map((item, index) => (
                 <tr key={index}>
-                  <td>{`${item.startDate.getFullYear()}.
-                  ${(item.startDate.getMonth() + 1)
+                  <td>
+                    {`${item.startDate.toDate().getFullYear()}.
+                  ${(item.startDate.toDate().getMonth() + 1)
                   .toString()
                   .padStart(2, "0")} ~ 
-                  ${item.endDate.getFullYear()}.
-                  ${(item.endDate.getMonth() + 1)
+                  ${item.endDate.toDate().getFullYear()}.
+                  ${(item.endDate.toDate().getMonth() + 1)
                   .toString()
-                  .padStart(2, "0")}.`}</td>
+                  .padStart(2, "0")}.`}
+                  </td>
                   <td>{item.school}</td>
                   <td>{item.major}</td>
                   <td>{item.grade ? item.grade : '-'}</td>
