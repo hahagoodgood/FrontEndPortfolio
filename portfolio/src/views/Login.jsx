@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Form, Input, Button} from "antd";
+import {getUserData} from "../services/userService";
 
 const user = {
   Id:"admin",
@@ -7,6 +8,20 @@ const user = {
 }
 
 const Login = () => {
+
+  const [userData, setUserData] = useState([]);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const data = await getUserData();
+      setUserData(data);
+      console.log("유저 데이터 페치 완료");
+    };
+    
+     fetchUserData();
+
+  }, []);
+
   const onFinish = (values) => {
     console.log("Success: ", values);
   };

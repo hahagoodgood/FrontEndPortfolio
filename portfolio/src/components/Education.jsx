@@ -25,12 +25,12 @@ const Education = () => {
 
   useEffect(() => {
     const fetchEducationData = async () => {
-      console.log("haha")
       const data = await getEducationData();
       setEducationData(data);
+      console.log("Data fetched:", data);
     };
 
-    fetchEducationData();
+    fetchEducationData()
     // .then((data) => console.log("Data fetched:", data))
     // .catch((error) => console.error("Error fetching data:", error));
   }, []);
@@ -57,7 +57,19 @@ const Education = () => {
               {educationData.map((item, index) => (
                 <tr key={index}>
                   <td>
+                    {/* 
+                      입학년도 출력 
+                      item.startDate.toDate().getFullYear()
+
+                      입학 월 출력 date의 month는 0부터 11까지 되어 있기에 +1 하였습니다.
+                      (item.startDate.toDate().getMonth() + 1)
+                      
+                      월을 02월 처럼 나타내기 위해 사용
+                      .toString()
+                      .padStart(2, "0")
+                    */}
                     {`${item.startDate.toDate().getFullYear()}.
+                    
                   ${(item.startDate.toDate().getMonth() + 1)
                   .toString()
                   .padStart(2, "0")} ~ 

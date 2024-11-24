@@ -2,7 +2,7 @@
 // Firebase 프로젝트에서 복사한 구성 객체를 여기에 추가하세요.
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import {getAuth} from "firebase/auth";
+import {getAuth, signInAnonymously, onAuthStateChanged} from "firebase/auth";
 
 // .env 파일의 api 키값을 ""으로 감싸면 안 된다.
 const firebaseConfig = {
@@ -22,6 +22,10 @@ const firebaseApp = initializeApp(firebaseConfig);
 // Firestore 초기화
 const db = getFirestore(firebaseApp);
 
+
+// 권한 얻기
+const auth = getAuth(firebaseApp);
+
 // 연결확인
 const testFirebaseConnection = () => {
   // fierbaseApp이 비여있지 않을 경우
@@ -32,8 +36,39 @@ const testFirebaseConnection = () => {
   }
 };
 
-// 권한 얻기
-const auth = getAuth(firebaseApp);
+// 인증상태 확인 후 로그인 여부 확인
+const ensureAnonymousLogin = async () => {
+  try {
+    return new Promise((resolve, reject) => {
+      // 현재 인증 상태 확인
+      onAuthStateChanged(auth, async (user) => {
+        if (user) {
+          // 이미 인증된 경우
+          console.log("User is already logged in:", user.uid);
+          resolve(user); // 현재 사용자 반환
+        } else {
+          // 인증되지 않은 경우 익명 로그인 수행
+          try {
+            const userCredential = await signInAnonymously(auth);
+            console.log("Signed in anonymously:", userCredential.user.uid);
+            resolve(userCredential.user); // 익명 사용자 반환
+          } catch (error) {
+            console.error("Error during anonymous sign-in:", error.message);
+            reject(error);
+          }
+        }
+      });
+    });
+  } catch (error) {
+    console.error("Error ensuring anonymous login:", error.message);
+    throw error;
+  }
+};
+
 
 // export default ;
-export { db, firebaseApp, auth, testFirebaseConnection };
+export { db, 
+  firebaseApp, 
+  auth, 
+  testFirebaseConnection, 
+  ensureAnonymousLogin };
