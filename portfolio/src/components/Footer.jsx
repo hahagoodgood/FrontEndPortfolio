@@ -8,7 +8,7 @@ const Footer = () => {
   useEffect(() => {
     const session = sessionStorage.getItem("isLoggedIn");
     // true가 아니라 "true"인 이유는 session이 항상 문자열만 저장하기 때문이다.
-    setIsLoggedIn(session === "ture");
+    setIsLoggedIn(session != null);
   }, []);
 
   const handleButtonClick = () => {

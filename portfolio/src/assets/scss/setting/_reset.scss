@@ -99,3 +99,7 @@ img {
 #skip a:active {
     top: 10px;
 }
+
+.ant-message {
+    z-index: 1050; /* Header보다 더 높은 값 설정 */
+  }

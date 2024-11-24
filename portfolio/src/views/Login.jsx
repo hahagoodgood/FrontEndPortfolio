@@ -1,15 +1,17 @@
 import React, {useEffect, useState} from "react";
-import { Form, Input, Button} from "antd";
+import { Form, Input, Button, message} from "antd";
+import{ useNavigate } from "react-router-dom";
 import {getUserData} from "../services/userService";
 
-const user = {
-  Id:"admin",
-  Password:"111111",
-}
+// const user = {
+//   Id:"admin",
+//   Password:"111111",
+// }
 
 const Login = () => {
 
   const [userData, setUserData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -28,6 +30,35 @@ const Login = () => {
 
   const onFinishFailed = (errorInfo) => {
     console.log("failed: ", errorInfo)
+  };
+
+  const handleLogin = (values) => {
+    const { id, password } = values;
+
+    if (id === userData.userID && password === userData.userPw) {
+      // 세션에 사용자 데이터 저장
+      sessionStorage.setItem("isLoggedIn", JSON.stringify({ id }));
+      message.success("로그인 성공!");
+      console.log("로그인 성공: ", { id });
+      // 페이지 리다이렉트 로직 추가 가능
+      navigate("/");
+    } else {
+      if (id != userData.userID){
+        message.error("아이디가 잘못되었습니다.");
+      }
+      if(password != userData.userPw){
+        message.error("비밀번호가 잘못되었습니다.");
+      }
+      // message.error("아이디 또는 비밀번호가 잘못되었습니다.");
+      console.log("로그인 실패");
+    }
+  };
+
+  // 로그아웃 (세션 제거)
+  const handleLogout = () => {
+    sessionStorage.removeItem("user");
+    message.success("로그아웃 완료!");
+    console.log("로그아웃 완료");
   };
 
   return (
@@ -57,7 +88,7 @@ const Login = () => {
       </form> */}
       <Form
         name="login"
-        onFinish={onFinish}
+        onFinish={handleLogin}
         onFinishFailed={onFinishFailed}
         layout="vertical"
       >

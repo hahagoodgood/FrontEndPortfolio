@@ -8,11 +8,15 @@ export const getUserData = async () => {
 
         ensureAnonymousLogin();
         const querySnapshot = await getDocs(collection(db, "user"));
-        const userData = {};
-        querySnapshot.forEach((doc) => {
-            userData = {...doc.data()}
-        });
-        return userData;
+        if (!querySnapshot.empty){
+            const firstDoc = querySnapshot.docs[0];
+            const userData = firstDoc.data();
+            console.log("유저 데이터: ", userData);
+            return userData;
+        }else{
+            console.error("documents가 비어있습니다.");
+            return null;
+        }
     }
     catch(e){
         console.error("",e);
