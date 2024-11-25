@@ -10,7 +10,9 @@ import {getUserData} from "../services/userService";
 
 const Login = () => {
 
-  const [userData, setUserData] = useState([]);
+  const [ userData, setUserData ] = useState([]);
+  // const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,14 +21,24 @@ const Login = () => {
       setUserData(data);
       console.log("유저 데이터 페치 완료");
     };
+
+    const ifLoggedIn = async() =>{
+      const session = sessionStorage.getItem("isLoggedIn");
+      if (session !== null){
+        message.warning("이미 로그인 되어있습니다!");
+        console.log("이미 로그인 되어있습니다!");
+        navigate("/");
+      }
+    }
     
      fetchUserData();
+     ifLoggedIn();
 
   }, []);
 
-  const onFinish = (values) => {
-    console.log("Success: ", values);
-  };
+  // const onFinish = (values) => {
+  //   console.log("Success: ", values);
+  // };
 
   const onFinishFailed = (errorInfo) => {
     console.log("failed: ", errorInfo)
@@ -40,13 +52,14 @@ const Login = () => {
       sessionStorage.setItem("isLoggedIn", JSON.stringify({ id }));
       message.success("로그인 성공!");
       console.log("로그인 성공: ", { id });
+      // setIsLoggedIn(true);
       // 페이지 리다이렉트 로직 추가 가능
       navigate("/");
     } else {
-      if (id != userData.userID){
+      if (id !== userData.userID){
         message.error("아이디가 잘못되었습니다.");
       }
-      if(password != userData.userPw){
+      if(password !== userData.userPw){
         message.error("비밀번호가 잘못되었습니다.");
       }
       // message.error("아이디 또는 비밀번호가 잘못되었습니다.");
@@ -55,11 +68,11 @@ const Login = () => {
   };
 
   // 로그아웃 (세션 제거)
-  const handleLogout = () => {
-    sessionStorage.removeItem("user");
-    message.success("로그아웃 완료!");
-    console.log("로그아웃 완료");
-  };
+  // const handleLogout = () => {
+  //   sessionStorage.removeItem("user");
+  //   message.success("로그아웃 완료!");
+  //   console.log("로그아웃 완료");
+  // };
 
   return (
     <div style={{ maxWidth: "400px", 
