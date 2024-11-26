@@ -6,6 +6,7 @@ import emailIcon from "../assets/icon/email.svg";
 import Myimg from "../assets/img/profile_img.jpg";
 import githubIcon from "../assets/icon/github.svg";
 import {getIntroduceData} from "../services/introService";
+import {getType} from "../firebase/firebaseConfig"
 
 // const introduction = {
 //   NameKor: "김동혁",
@@ -22,42 +23,60 @@ import {getIntroduceData} from "../services/introService";
 
 const Intro = () => {
 
-  const [ introduction, setIntroData ] = useState([]);
-  const [birthDate, setBirth] = useState(new Date());
+  const [ introduction, setIntroData ] = useState({});
+  const [birth, setBirth] = useState(new Date());
+  const [introduce, setIntroduce] = useState(" "); 
+  const [fetchedLoading, setFetchedLoading] = useState(true); 
+  const [githubURL, setGithubURL] = useState("");
 
-  const birrhDate = new Date();
-  const age = 0;
   const today = new Date();
+
 
   useEffect(() => {
     const fetchIntroData = async () => {
       const data = await getIntroduceData();
       setIntroData(data);
+
       console.log("intro 데이터 패치 완료");
-      setBirth(introduction.birth);
-      console.log()
+      console.log(data);
+      setFetchedLoading(false);
+      // 
     }
     fetchIntroData();
   },[])
-
-
-
+  
+  useEffect(() => {
+    if(Object.keys(introduction).length > 0){
+      const birthToDate = introduction.birth.toDate();
+      setBirth(birthToDate);
+    //   const formattedIntroduce = introduction.introduce
+    // .split("\n")
+    // .map((line, index) => <p key={index}>{line}<br/></p>); 
+    const introduce_cont = introduction.introduce
+    setIntroduce(introduce_cont);
+    console.log(formattedIntroduce);
+    setGithubURL(introduction.github);
+      // console.log(getType(introduce_cont), introduce_cont);
+    }
+  },[fetchedLoading, introduction])
 
 
   // 만 나이 계산
-/*   const age =
-    today.getFullYear() - introduction.birth.toDate().getFullYear();
-    - (today < new Date(today.getFullYear(), introduction.brith.getMonth(), introduction.brith.getDate()) 
-    ? 1 : 0) */
-    ;
+  const age =
+    today.getFullYear() - birth.getFullYear()
+    - (today < new Date(today.getFullYear(), birth.getMonth(), birth.getDate()) 
+    ? 1 : 0);
 
-  // const formattedIntroduce = introduction.introduce
-  //   .split("\n")
-  //   .map((line, index) => <p key={index}>{line}<br/></p>);
+    const formattedIntroduce =
+    typeof introduce === "string"
+      ? introduce.split("\\n").map((line, index) => <p key={index}>{line}<br /></p>)
+      : null;
+
+    const gitHubSplit = githubURL.split("//").pop();
     
   return (
     <section id="intro">
-      {/* <div className="intro__inner">
+      <div className="intro__inner">
         <h2 className="intro__title">
           INTRODUCTION <em>자기소개</em>
         </h2>
@@ -72,9 +91,9 @@ const Intro = () => {
             <div>
               <img src={birthIcon} alt="SVG" />
               <p>
-                : {introduction.brith.getFullYear()}.
-                {introduction.brith.getMonth().toString().padStart(2, "0")}.
-                {introduction.brith.getDate()}( 만 {age} 세 )
+                : {birth.getFullYear()}.
+                {birth.getMonth().toString().padStart(2, "0")}.
+                {birth.getDate()}( 만 {age} 세 )
               </p>
             </div>
             <div>
@@ -90,7 +109,7 @@ const Intro = () => {
             <div>
               <img src={githubIcon} alt="SVG" />
               <a href={introduction.github}>
-                : {introduction.github.split("//").pop()}
+                : {gitHubSplit}
               </a>
             </div>
           </div>
@@ -99,8 +118,7 @@ const Intro = () => {
           <Divider>{introduction.introduce_title}</Divider>
           {formattedIntroduce}
         </div>
-      </div> */}
-      
+      </div>
     </section>
   );
 };

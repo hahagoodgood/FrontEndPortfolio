@@ -65,10 +65,20 @@ const ensureAnonymousLogin = async () => {
   }
 };
 
+function getType(value) {
+  if (value === null) return "null"; // null 체크
+  if (typeof value !== "object") return typeof value; // 원시 타입 반환
+
+  // 객체, 배열, 날짜 등을 세분화
+  const type = Object.prototype.toString.call(value); // "[object Type]" 반환
+  return type.slice(8, -1).toLowerCase(); // "Type" 부분만 추출해 소문자로 반환
+}
+
 
 // export default ;
 export { db, 
   firebaseApp, 
   auth, 
   testFirebaseConnection, 
-  ensureAnonymousLogin };
+  ensureAnonymousLogin,
+  getType };

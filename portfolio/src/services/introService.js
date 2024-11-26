@@ -14,6 +14,14 @@ export const getIntroduceData = async () => {
             console.error("intro데이터가 비어있습니다.")
             return null
         }
+        
+        // const introList = [];
+        // querySnapshot.forEach((doc) => {
+        //     introList.push({ id: doc.id, ...doc.data() });
+        // });
+
+        // return introList
+
     }catch (e) {
         console.error("intro데이터 패치 오류: ", e);
     }
