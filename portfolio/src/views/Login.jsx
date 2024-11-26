@@ -8,6 +8,16 @@ import {getUserData} from "../services/userService";
 //   Password:"111111",
 // }
 
+// export const getIsLogined = () =>{
+//   const isLoggedIn = false;
+//   const session = sessionStorage.getItem("isLoggedIn");
+//   if (session !== null){
+//     isLoggedIn = true;
+//   }
+//   return isLoggedIn
+// };
+
+
 const Login = () => {
 
   const [ userData, setUserData ] = useState([]);

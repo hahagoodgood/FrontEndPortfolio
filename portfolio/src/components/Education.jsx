@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {getEducationData} from "../services/educationService" 
+import {getEducationData} from "../services/educationService";
+import {Button} from "antd";
+import {useNavigate} from "react-router-dom";
+import {useAuth} from "../services/session"
 
 const educationData = [
   // {
@@ -22,15 +25,20 @@ const educationData = [
 const Education = () => {
 
   const [educationData, setEducationData] = useState([]);
+  const { isLoggedIn } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchEducationData = async () => {
       const data = await getEducationData();
       setEducationData(data);
       console.log("Data fetched:", data);
+      console.log("Auth상태:",isLoggedIn);
     };
 
-    fetchEducationData()
+    fetchEducationData();
+    // getIsLogined();
+    // setIsLoggedIn();
     // .then((data) => console.log("Data fetched:", data))
     // .catch((error) => console.error("Error fetching data:", error));
   }, []);
@@ -41,6 +49,14 @@ const Education = () => {
         <h2 className="education__title">
           Education <em>학 력</em>
         </h2>
+        {isLoggedIn && (
+          <Button
+            type="primary"
+            onClick={() => navigate("/")}
+          >
+            수정
+          </Button>
+        )}
         <div className="education__content">
           <table>
             <thead>
