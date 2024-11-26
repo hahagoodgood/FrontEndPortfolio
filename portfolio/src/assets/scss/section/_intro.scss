@@ -95,7 +95,7 @@
         }
     }
     .intro__wrap {
-        padding-left: 50px;
+        padding-left: 120px;
         // height: 70vh;
         display: flex;
         // @include flex-center;
@@ -110,6 +110,8 @@
             width:160px;
             border-radius: 15px;
             overflow: hidden;
+            margin-right:15px;
+            border: 2px solid #ddd;
         }
         .intro__content {
             font-size: 1rem;
@@ -130,6 +132,11 @@
                 }
             }
         }
+    }
+    .intro__intoduce{
+        font-size: 1rem;
+        padding-left: 100px;
+        padding-right: 100px;
     }
 //     .intro__text {
 //         width: 100%;

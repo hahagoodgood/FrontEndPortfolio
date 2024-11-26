@@ -4,7 +4,6 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomeView from "./views/HomeView";
 import Login from "./views/Login";
-import Footer from "./components/Footer";
 import Header from "./components/Header";
 import testFirebaseConnection from "./firebase/testFirebase"
 

@@ -31,9 +31,9 @@ const Login = () => {
       }
     }
     
-     fetchUserData();
-     ifLoggedIn();
-
+    if(ifLoggedIn()){
+      fetchUserData();
+    }
   }, []);
 
   // const onFinish = (values) => {

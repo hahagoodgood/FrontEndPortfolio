@@ -1,5 +1,5 @@
 import {db, ensureAnonymousLogin} from "../firebase/firebaseConfig"
-import { collection, addDoc, getDocs} from "firebase/firestore"
+import { collection, getDocs} from "firebase/firestore"
 
 
 // userData 읽기
