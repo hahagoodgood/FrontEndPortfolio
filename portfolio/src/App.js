@@ -6,6 +6,7 @@ import HomeView from "./views/HomeView";
 import Login from "./views/Login";
 import Header from "./components/Header";
 import testFirebaseConnection from "./firebase/testFirebase"
+import EditIntroPage from "./views/EditIntroPage";
 
 function App() {
   ////초기 세팅
@@ -38,6 +39,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeView />}/>
         <Route path="/login" element={<Login />} />
+        <Route path="/edit-intro" element={<EditIntroPage/>}/>
       </Routes>
     </Router>
   );
