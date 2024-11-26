@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {getEducationData} from "../services/educationService";
-import {Button} from "antd";
-import {useNavigate} from "react-router-dom";
-import {useAuth} from "../services/session"
 
 const educationData = [
   // {
@@ -25,15 +22,12 @@ const educationData = [
 const Education = () => {
 
   const [educationData, setEducationData] = useState([]);
-  const { isLoggedIn } = useAuth();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchEducationData = async () => {
       const data = await getEducationData();
       setEducationData(data);
       console.log("Data fetched:", data);
-      console.log("Auth상태:",isLoggedIn);
     };
 
     fetchEducationData();
@@ -95,14 +89,6 @@ const Education = () => {
             </tbody>
           </table>
         </div>
-        {isLoggedIn && (
-          <Button
-            type="primary"
-            onClick={() => navigate("/edit-education")}
-          >
-            수정
-          </Button>
-        )}
       </div>
     </section>
   );

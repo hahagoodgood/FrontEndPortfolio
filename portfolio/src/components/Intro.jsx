@@ -3,10 +3,11 @@ import { Divider } from "antd";
 import phoneIcon from "../assets/icon/phone.svg";
 import birthIcon from "../assets/icon/calendar.svg";
 import emailIcon from "../assets/icon/email.svg";
-import Myimg from "../assets/img/profile_img.jpg";
 import githubIcon from "../assets/icon/github.svg";
 import {getIntroduceData} from "../services/introService";
-import {getType} from "../firebase/firebaseConfig"
+import {useNavigate} from "react-router-dom";
+import {useAuth} from "../services/session"
+import {Button} from "antd";
 
 // const introduction = {
 //   NameKor: "김동혁",
@@ -28,6 +29,8 @@ const Intro = () => {
   const [introduce, setIntroduce] = useState(" "); 
   const [fetchedLoading, setFetchedLoading] = useState(true); 
   const [githubURL, setGithubURL] = useState("");
+  const { isLoggedIn } = useAuth();
+  const navigate = useNavigate();
 
   const today = new Date();
 
@@ -118,6 +121,14 @@ const Intro = () => {
           <Divider>{introduction.introduce_title}</Divider>
           {formattedIntroduce}
         </div>
+        {isLoggedIn && (
+          <Button
+            type="primary"
+            onClick={() => navigate("/edit-intro")}
+          >
+            수정
+          </Button>
+        )}
       </div>
     </section>
   );
