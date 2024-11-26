@@ -49,14 +49,6 @@ const Education = () => {
         <h2 className="education__title">
           Education <em>학 력</em>
         </h2>
-        {isLoggedIn && (
-          <Button
-            type="primary"
-            onClick={() => navigate("/")}
-          >
-            수정
-          </Button>
-        )}
         <div className="education__content">
           <table>
             <thead>
@@ -103,6 +95,14 @@ const Education = () => {
             </tbody>
           </table>
         </div>
+        {isLoggedIn && (
+          <Button
+            type="primary"
+            onClick={() => navigate("/edit-education")}
+          >
+            수정
+          </Button>
+        )}
       </div>
     </section>
   );
