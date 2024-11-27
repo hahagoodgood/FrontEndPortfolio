@@ -10,7 +10,7 @@ const HomePort = () => {
     <> 
       <Main>
         {/* <Skill /> */}
-        <Site />
+        {/* <Site /> */}
         <Port />
         {/* <Contact /> */}
       </Main>

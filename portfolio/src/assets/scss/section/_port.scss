@@ -1,6 +1,6 @@
 #port {
     width: 100%;
-    margin-top: 30vh;
+    margin-top: 3vh;
     // overflow: hidden;
 }
 .port__inner {
@@ -29,7 +29,7 @@
     .port__wrap {
         display: flex;
         flex-wrap: wrap;
-        width: 7000px;
+        justify-content: center;
 
         .port__item {
             width: 500px;
@@ -37,54 +37,40 @@
             background-color: var(--subBg100);
             padding: 2.5rem;
             margin-right: 20px;
+            align-items: center;
 
             &.p1 {
-                background-color: var(--subBg100);
+                background-color: var(--main_blue_200);
             }
             &.p2 {
-                background-color: var(--subBg200);
+                background-color: var(--main_blue_100);
             }
             &.p3 {
-                background-color: var(--subBg300);
-            }
-            &.p4 {
-                background-color: var(--subBg400);
-            }
-            &.p5 {
-                background-color: var(--subBg500);
-            }
-            &.p6 {
-                background-color: var(--subBg100);
-            }
-            &.p7 {
-                background-color: var(--subBg200);
-            }
-            &.p8 {
-                background-color: var(--subBg300);
-            }
-            &.p9 {
-                background-color: var(--subBg400);
-            }
-            &.p10 {
-                background-color: var(--subBg500);
+                background-color: var(--main_blue_200);
             }
             .num {
                 font-size: 2rem;
                 font-family: var(--mainNum-font);
             }
             .img {
-                display: block;
-                margin-top: -20px;
+                display: flex;
+                justify-content: center;
+                margin-top: 0px;
                 transition: margin-top 0.3s;
+                
 
                 img {
                     border-radius: 5px;
-                    filter: saturate(0%);
+                    width: auto;
+                    max-width: 100%;
+                    // filter: saturate(0%);
                     transition: all 0.3s;
+                    max-height: 250px;
+                    overflow: hidden;
                 }
                 
                 &:hover {
-                    margin-top: 0;
+                    margin-top: 10px;
 
                     img {
                         filter: saturate(100%);
