@@ -1,24 +1,13 @@
 import React from "react";
-import Header from "../components/Header";
 import Intro from "../components/Intro";
-import Skill from "../components/Skill";
-import Site from "../components/Site";
-import Port from "../components/Port";
 import Main from "../components/Main";
-import Education from "../components/Education";
 import Footer from "../components/Footer";
 
 const HomeView = () => {
   return (
-    //React Fragment
     <> 
       <Main>
         <Intro />
-        {/* <Skill /> */}
-        {/* <Site /> */}
-        {/* <Port /> */}
-        {/* <Contact /> */}
-        {/* <Education /> */}
       </Main>
       <Footer /> 
     </>
