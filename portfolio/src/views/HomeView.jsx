@@ -13,15 +13,12 @@ const HomeView = () => {
   return (
     //React Fragment
     <> 
-      {/* <Skip /> */}
-      {/* <Header /> */}
       <Main>
-        {/* <Skill /> */}
         <Intro />
-        <Skill />
-        <Site />
+        {/* <Skill /> */}
+        {/* <Site /> */}
         <Port />
-        <Contact />
+        {/* <Contact /> */}
         <Education />
       </Main>
       <Footer /> 

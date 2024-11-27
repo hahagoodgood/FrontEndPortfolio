@@ -50,7 +50,9 @@ const EditIntroPage = () => {
     if (!introData) return <p>로딩 중...</p>;
 
     return (
-        <div style={{ maxWidth: 600, margin: "0 auto", padding: "20px" }}>
+        <div
+        className="editIntro__inner" 
+        /* style={{ maxWidth: 600, margin: "0 auto", padding: "20px", marginTop:"50px" }} */>
             <Title level={2} style={{ textAlign: "center" }}>
                 소개글 수정
             </Title>
@@ -65,7 +67,7 @@ const EditIntroPage = () => {
                     name="NameKor"
                     rules={[{ required: true, message: "이름(한글)을 입력해주세요." }]}
                 >
-                    <Input placeholder="예: 김동혁" />
+                    <Input placeholder="예: 홍길동" />
                 </Form.Item>
 
                 <Form.Item
@@ -73,7 +75,7 @@ const EditIntroPage = () => {
                     name="NameEng"
                     rules={[{ required: true, message: "이름(영문)을 입력해주세요." }]}
                 >
-                    <Input placeholder="예: Kim Dong Hyuk" />
+                    <Input placeholder="예: Hong gil dong" />
                 </Form.Item>
 
                 <Form.Item
@@ -93,7 +95,7 @@ const EditIntroPage = () => {
                     name="phone"
                     rules={[{ required: true, message: "전화번호를 입력해주세요." }]}
                 >
-                    <Input placeholder="예: 010-9522-9505" />
+                    <Input placeholder="예: 010-1234-9874" />
                 </Form.Item>
 
                 <Form.Item
