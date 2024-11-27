@@ -95,7 +95,7 @@ const Intro = () => {
               <img src={birthIcon} alt="SVG" />
               <p>
                 : {birth.getFullYear()}.
-                {birth.getMonth().toString().padStart(2, "0")}.
+                {(birth.getMonth()+1).toString().padStart(2, "0")}.
                 {birth.getDate()}( 만 {age} 세 )
               </p>
             </div>
