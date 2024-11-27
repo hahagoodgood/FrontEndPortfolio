@@ -118,7 +118,7 @@ const Intro = () => {
           </div>
         </div>
         <div className="intro__intoduce">
-          <Divider>{introduction.introduce_title}</Divider>
+          <Divider style={{  borderColor: '#2b2b2b' }}>{introduction.introduce_title}</Divider>
           {formattedIntroduce}
         </div>
         {isLoggedIn && (

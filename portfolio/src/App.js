@@ -8,6 +8,8 @@ import Header from "./components/Header";
 import testFirebaseConnection from "./firebase/testFirebase"
 import EditIntroPage from "./views/EditIntroPage";
 import HomeSkills from "./views/HomeSkills";
+import HomePort from "./views/HomePortfolio";
+import HomeCareer from "./views/HomeCareer";
 
 function App() {
   ////초기 세팅
@@ -42,6 +44,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/edit-intro" element={<EditIntroPage/>}/>
         <Route path="/skills" element = {<HomeSkills/>}/>
+        <Route path="/port" element={<HomePort/>}/>
+        <Route path="/career" element={<HomeCareer/>}/>
       </Routes>
     </Router>
   );

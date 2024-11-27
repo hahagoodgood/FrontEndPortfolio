@@ -15,8 +15,8 @@ const headerNav = [
     url: "/port",
   },
   {
-    title: "contact",
-    url: "/contact",
+    title: "career",
+    url: "/career",
   },
 ];
 
